@@ -58,18 +58,18 @@ unzip -q -o "$BUILD_DIR/compiled.apk" "classes.dex" -d "$BUILD_DIR"
 echo "-> Patching base APK with new DEX..."
 cp "$DIR/base/base.apk" "$BUILD_DIR/unaligned.apk"
 
-# 单字节补丁 Manifest versionCode (0x05 -> 0x64 = 100)，避免降级拒绝覆盖安装
+# 从 compiled.apk 获取 Manifest 并补丁 versionCode 为 120 (0x78)，确保顺利覆盖安装
 python3 -c "
+import zipfile, io
 with open('$BUILD_DIR/unaligned.apk', 'rb') as f:
     data = f.read()
-import zipfile, io
 zf_in = zipfile.ZipFile(io.BytesIO(data), 'r')
-manifest_data = zf_in.read('AndroidManifest.xml')
-pos = manifest_data.find(b'\x1c\x00\x08\x00')
-if pos != -1 and manifest_data[pos+4] == 0x05:
-    manifest_mod = manifest_data[:pos+4] + b'\x64' + manifest_data[pos+5:]
-else:
-    manifest_mod = manifest_data
+
+zf_compiled = zipfile.ZipFile('$BUILD_DIR/compiled.apk', 'r')
+manifest_data = bytearray(zf_compiled.read('AndroidManifest.xml'))
+pos = manifest_data.find(b'\x08\x00\x00\x10\x64\x00\x00\x00')
+if pos != -1:
+    manifest_data[pos+4] = 0x87
 
 buf = io.BytesIO()
 with zipfile.ZipFile(buf, 'w') as zf_out:
@@ -77,7 +77,7 @@ with zipfile.ZipFile(buf, 'w') as zf_out:
         if item.filename in ['META-INF/MANIFEST.MF', 'META-INF/MYDV.SF', 'META-INF/MYDV.RSA', 'classes.dex', 'AndroidManifest.xml']:
             continue
         zf_out.writestr(item, zf_in.read(item.filename))
-    zf_out.writestr('AndroidManifest.xml', manifest_mod)
+    zf_out.writestr('AndroidManifest.xml', bytes(manifest_data))
     with open('$BUILD_DIR/classes.dex', 'rb') as df:
         zf_out.writestr('classes.dex', df.read())
 

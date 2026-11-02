@@ -239,6 +239,16 @@
     .line 55
     move v6, v7
 
+    iget-object v1, v0, Ln5/k;->j:Lf1/f1;
+
+    invoke-interface {v1}, Lf1/a3;->getValue()Ljava/lang/Object;
+
+    move-result-object v1
+
+    check-cast v1, Ljava/util/List;
+
+    invoke-static {v1, v2}, Lcom/github/mytv/dv/helper/VideoPreloadHelper;->preloadNext(Ljava/util/List;I)V
+
     .line 56
     goto :goto_0
 

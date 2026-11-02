@@ -1841,6 +1841,8 @@
     .line 308
     invoke-virtual {v0, v3}, Lq5/k;->e(Z)V
 
+    invoke-virtual {v0, v3}, Lq5/k;->f(Z)V
+
     .line 309
     .line 310
     .line 311

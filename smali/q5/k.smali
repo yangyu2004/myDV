@@ -642,7 +642,7 @@
     const/4 v9, 0x0
 
     .line 102
-    const/4 v10, 0x1
+    const/4 v10, 0x0
 
     .line 103
     move-object v4, p0
@@ -1306,7 +1306,7 @@
     const/4 v9, 0x0
 
     .line 102
-    const/4 v10, 0x0
+    const/4 v10, 0x1
 
     .line 103
     move-object v4, p0

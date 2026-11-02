@@ -251,11 +251,27 @@
 .end method
 
 .method public final e()I
-    .locals 1
+    .locals 2
 
-    invoke-static {}, Lo5/d0;->getPreloadCount()I
+    .line 1
+    iget-object v0, p0, Lj0/k;->a:Lj0/c;
 
+    .line 2
+    .line 3
+    iget v0, v0, Lj0/f0;->e:I
+
+    .line 4
+    .line 5
+    const/4 v1, 0x0
+
+    .line 6
+    invoke-static {v1, v0}, Ljava/lang/Math;->max(II)I
+
+    .line 7
+    .line 8
+    .line 9
     move-result v0
 
+    .line 10
     return v0
 .end method

@@ -1036,11 +1036,11 @@
 
     .line 320
     :goto_b
+    const-string v0, "ProfileCollection"
+    const-string v1, "loadCollections failed"
+    invoke-static {v0, v1, p1}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;Ljava/lang/Throwable;)I
     iput-boolean v2, v8, Lq5/k;->G:Z
-
-    .line 321
-    .line 322
-    throw p1
+    return-object v3
 
     .line 323
     :pswitch_data_0

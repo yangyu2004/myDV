@@ -1394,6 +1394,23 @@
 .method public final dispatchKeyEvent(Landroid/view/KeyEvent;)Z
     .locals 5
 
+    new-instance v0, Ljava/lang/StringBuilder;
+    invoke-direct {v0}, Ljava/lang/StringBuilder;-><init>()V
+    const-string v1, "keyCode="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
+    move-result v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    const-string v1, ", action="
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(Ljava/lang/String;)Ljava/lang/StringBuilder;
+    invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
+    move-result v1
+    invoke-virtual {v0, v1}, Ljava/lang/StringBuilder;->append(I)Ljava/lang/StringBuilder;
+    invoke-virtual {v0}, Ljava/lang/StringBuilder;->toString()Ljava/lang/String;
+    move-result-object v0
+    const-string v1, "KeyDispatch"
+    invoke-static {v1, v0}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
+
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getKeyCode()I
     move-result v0
 
@@ -1406,17 +1423,30 @@
     if-nez v0, :cond_menu_consumed
 
     sget-object v0, Lcom/github/mytv/dv/MainActivity;->F:Lq5/g;
-    if-eqz v0, :cond_menu_consumed
+    const-string v1, "KeyDispatch"
+    if-nez v0, :cond_f_not_null
+    const-string v2, "MENU pressed but MainActivity.F is null!"
+    invoke-static {v1, v2}, Landroid/util/Log;->e(Ljava/lang/String;Ljava/lang/String;)I
+    goto :cond_menu_consumed
 
+:cond_f_not_null
     iget-object v0, v0, Lq5/g;->e:Lq5/h;
     if-eqz v0, :cond_menu_consumed
 
     iget-object v1, v0, Lq5/h;->e:Li7/g0;
     invoke-virtual {v1}, Li7/g0;->getValue()Ljava/lang/Object;
     move-result-object v1
-    sget-object v2, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
-    if-ne v1, v2, :cond_menu_open
+    check-cast v1, Ljava/lang/Boolean;
+    if-eqz v1, :cond_menu_open
+    invoke-virtual {v1}, Ljava/lang/Boolean;->booleanValue()Z
+    move-result v1
+    if-nez v1, :cond_menu_close
+    goto :cond_menu_open
 
+:cond_menu_close
+    const-string v1, "KeyDispatch"
+    const-string v2, "Closing drawer via MENU"
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
     iget-object v0, v0, Lq5/h;->e:Li7/g0;
     sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
     const/4 v2, 0x0
@@ -1424,6 +1454,9 @@
     goto :cond_menu_consumed
 
 :cond_menu_open
+    const-string v1, "KeyDispatch"
+    const-string v2, "Opening drawer via MENU f()"
+    invoke-static {v1, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
     invoke-virtual {v0}, Lq5/h;->f()V
 
 :cond_menu_consumed
@@ -1441,17 +1474,40 @@
     iget-object v2, v1, Lq5/h;->e:Li7/g0;
     invoke-virtual {v2}, Li7/g0;->getValue()Ljava/lang/Object;
     move-result-object v2
-    sget-object v3, Ljava/lang/Boolean;->TRUE:Ljava/lang/Boolean;
-    if-ne v2, v3, :cond_orig
+    check-cast v2, Ljava/lang/Boolean;
+    if-eqz v2, :cond_orig
+    invoke-virtual {v2}, Ljava/lang/Boolean;->booleanValue()Z
+    move-result v2
+    if-nez v2, :cond_drawer_open
+    goto :cond_orig
+
+:cond_drawer_open
+    const-string v3, "KeyDispatch"
+    const-string v4, "Drawer is open! Handling key in drawer"
+    invoke-static {v3, v4}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
 
     # 抽屉处于打开状态，检查是否是方向键或确定键
     invoke-virtual {p1}, Landroid/view/KeyEvent;->getAction()I
     move-result v2
 
+    # BACK (0x04 = 4)
+    const/4 v3, 0x4
+    if-ne v0, v3, :cond_drawer_left
+    if-nez v2, :cond_drawer_consumed
+    iget-object v0, v1, Lq5/h;->e:Li7/g0;
+    sget-object v1, Ljava/lang/Boolean;->FALSE:Ljava/lang/Boolean;
+    const/4 v2, 0x0
+    invoke-virtual {v0, v2, v1}, Li7/g0;->i(Ljava/lang/Object;Ljava/lang/Object;)Z
+    goto :cond_drawer_consumed
+
+:cond_drawer_left
     # DPAD_LEFT (0x15 = 21)
     const/16 v3, 0x15
     if-ne v0, v3, :cond_drawer_right
     if-nez v2, :cond_drawer_consumed
+    const-string v0, "KeyDispatch"
+    const-string v2, "Drawer LEFT pressed, navigating tab"
+    invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
     iget-object v0, v1, Lq5/h;->b:Li7/g0;
     invoke-virtual {v0}, Li7/g0;->getValue()Ljava/lang/Object;
     move-result-object v0
@@ -1471,6 +1527,9 @@
     const/16 v3, 0x16
     if-ne v0, v3, :cond_drawer_select
     if-nez v2, :cond_drawer_consumed
+    const-string v0, "KeyDispatch"
+    const-string v2, "Drawer RIGHT pressed, navigating tab"
+    invoke-static {v0, v2}, Landroid/util/Log;->i(Ljava/lang/String;Ljava/lang/String;)I
     iget-object v0, v1, Lq5/h;->b:Li7/g0;
     invoke-virtual {v0}, Li7/g0;->getValue()Ljava/lang/Object;
     move-result-object v0

@@ -441,6 +441,8 @@
     .line 194
     invoke-direct {v13, v12}, Landroidx/media3/exoplayer/ExoPlayer$Builder;-><init>(Landroid/content/Context;)V
 
+    invoke-static {v12}, Lcom/github/mytv/dv/helper/VideoPreloadHelper;->initCache(Landroid/content/Context;)V
+
     .line 195
     .line 196
     .line 197
@@ -544,6 +546,10 @@
     .line 247
     .line 248
     .line 249
+    move-result-object v4
+
+    invoke-static {v4}, Lcom/github/mytv/dv/helper/VideoPreloadHelper;->getCacheDataSourceFactory(Landroidx/media3/datasource/DataSource$Factory;)Landroidx/media3/datasource/DataSource$Factory;
+
     move-result-object v4
 
     .line 250
