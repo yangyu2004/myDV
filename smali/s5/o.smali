@@ -1,0 +1,47 @@
+.class public final enum Ls5/o;
+.super Ls5/s;
+.source "r8-map-id-a9865b84ca854aabc8efa3b6ab91a4d72c7f43f3dad3e5e7f1af8d3a0fd9c9b2"
+
+
+# direct methods
+.method public constructor <init>()V
+    .locals 2
+
+    .line 1
+    const-string v0, "ALWAYS_TRUE"
+
+    .line 2
+    .line 3
+    const/4 v1, 0x0
+
+    .line 4
+    invoke-direct {p0, v0, v1}, Ljava/lang/Enum;-><init>(Ljava/lang/String;I)V
+
+    .line 5
+    .line 6
+    .line 7
+    return-void
+.end method
+
+
+# virtual methods
+.method public final apply(Ljava/lang/Object;)Z
+    .locals 0
+
+    .line 1
+    const/4 p1, 0x1
+
+    .line 2
+    return p1
+.end method
+
+.method public final toString()Ljava/lang/String;
+    .locals 1
+
+    .line 1
+    const-string v0, "Predicates.alwaysTrue()"
+
+    .line 2
+    .line 3
+    return-object v0
+.end method

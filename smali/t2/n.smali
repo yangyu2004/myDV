@@ -1,0 +1,148 @@
+.class public final synthetic Lt2/n;
+.super Lkotlin/jvm/internal/j;
+.source "r8-map-id-a9865b84ca854aabc8efa3b6ab91a4d72c7f43f3dad3e5e7f1af8d3a0fd9c9b2"
+
+# interfaces
+.implements Lu6/q;
+
+
+# virtual methods
+.method public final invoke(Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
+    .locals 4
+
+    .line 1
+    if-nez p1, :cond_1
+
+    .line 2
+    .line 3
+    check-cast p2, Lz1/e;
+
+    .line 4
+    .line 5
+    iget-wide p1, p2, Lz1/e;->a:J
+
+    .line 6
+    .line 7
+    check-cast p3, Lu6/l;
+
+    .line 8
+    .line 9
+    iget-object v0, p0, Lkotlin/jvm/internal/c;->receiver:Ljava/lang/Object;
+
+    .line 10
+    .line 11
+    check-cast v0, Lt2/v;
+
+    .line 12
+    .line 13
+    invoke-virtual {v0}, Landroid/view/View;->getContext()Landroid/content/Context;
+
+    .line 14
+    .line 15
+    .line 16
+    move-result-object v1
+
+    .line 17
+    invoke-virtual {v1}, Landroid/content/Context;->getResources()Landroid/content/res/Resources;
+
+    .line 18
+    .line 19
+    .line 20
+    move-result-object v1
+
+    .line 21
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getDisplayMetrics()Landroid/util/DisplayMetrics;
+
+    .line 22
+    .line 23
+    .line 24
+    move-result-object v2
+
+    .line 25
+    iget v2, v2, Landroid/util/DisplayMetrics;->density:F
+
+    .line 26
+    .line 27
+    invoke-virtual {v1}, Landroid/content/res/Resources;->getConfiguration()Landroid/content/res/Configuration;
+
+    .line 28
+    .line 29
+    .line 30
+    move-result-object v1
+
+    .line 31
+    iget v1, v1, Landroid/content/res/Configuration;->fontScale:F
+
+    .line 32
+    .line 33
+    new-instance v3, Lp3/d;
+
+    .line 34
+    .line 35
+    invoke-direct {v3, v2, v1}, Lp3/d;-><init>(FF)V
+
+    .line 36
+    .line 37
+    .line 38
+    new-instance v1, Lw1/c;
+
+    .line 39
+    .line 40
+    invoke-direct {v1, v3, p1, p2, p3}, Lw1/c;-><init>(Lp3/d;JLu6/l;)V
+
+    .line 41
+    .line 42
+    .line 43
+    sget p1, Landroid/os/Build$VERSION;->SDK_INT:I
+
+    .line 44
+    .line 45
+    const/16 p2, 0x18
+
+    .line 46
+    .line 47
+    const/4 p3, 0x0
+
+    .line 48
+    if-lt p1, p2, :cond_0
+
+    .line 49
+    .line 50
+    sget-object p1, Lt2/e0;->a:Lt2/e0;
+
+    .line 51
+    .line 52
+    invoke-virtual {p1, v0, p3, v1}, Lt2/e0;->a(Landroid/view/View;Lw1/g;Lw1/c;)Z
+
+    .line 53
+    .line 54
+    .line 55
+    move-result p1
+
+    .line 56
+    invoke-static {p1}, Ljava/lang/Boolean;->valueOf(Z)Ljava/lang/Boolean;
+
+    .line 57
+    .line 58
+    .line 59
+    move-result-object p1
+
+    .line 60
+    return-object p1
+
+    .line 61
+    :cond_0
+    throw p3
+
+    .line 62
+    :cond_1
+    invoke-static {}, Lb2/d;->m()V
+
+    .line 63
+    .line 64
+    .line 65
+    const/4 p1, 0x0
+
+    .line 66
+    return-object p1
+.end method

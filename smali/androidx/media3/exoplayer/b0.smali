@@ -1,0 +1,61 @@
+.class public final synthetic Landroidx/media3/exoplayer/b0;
+.super Ljava/lang/Object;
+.source "r8-map-id-a9865b84ca854aabc8efa3b6ab91a4d72c7f43f3dad3e5e7f1af8d3a0fd9c9b2"
+
+# interfaces
+.implements Ljava/util/function/IntConsumer;
+
+
+# instance fields
+.field public final synthetic a:Landroidx/media3/exoplayer/ExoPlayerImpl$VirtualDeviceIdChangeListener;
+
+
+# direct methods
+.method public synthetic constructor <init>(Landroidx/media3/exoplayer/ExoPlayerImpl$VirtualDeviceIdChangeListener;)V
+    .locals 0
+
+    .line 1
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 2
+    .line 3
+    .line 4
+    iput-object p1, p0, Landroidx/media3/exoplayer/b0;->a:Landroidx/media3/exoplayer/ExoPlayerImpl$VirtualDeviceIdChangeListener;
+
+    .line 5
+    .line 6
+    return-void
+.end method
+
+
+# virtual methods
+.method public final accept(I)V
+    .locals 1
+
+    .line 1
+    iget-object v0, p0, Landroidx/media3/exoplayer/b0;->a:Landroidx/media3/exoplayer/ExoPlayerImpl$VirtualDeviceIdChangeListener;
+
+    .line 2
+    .line 3
+    invoke-static {v0, p1}, Landroidx/media3/exoplayer/ExoPlayerImpl$VirtualDeviceIdChangeListener;->a(Landroidx/media3/exoplayer/ExoPlayerImpl$VirtualDeviceIdChangeListener;I)V
+
+    .line 4
+    .line 5
+    .line 6
+    return-void
+.end method
+
+.method public synthetic andThen(Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
+    .locals 0
+
+    .line 1
+    invoke-static {p0, p1}, Lj$/util/function/IntConsumer$-CC;->$default$andThen(Ljava/util/function/IntConsumer;Ljava/util/function/IntConsumer;)Ljava/util/function/IntConsumer;
+
+    .line 2
+    .line 3
+    .line 4
+    move-result-object p1
+
+    .line 5
+    return-object p1
+.end method

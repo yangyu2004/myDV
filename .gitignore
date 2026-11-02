@@ -1,0 +1,5 @@
+# Build outputs
+build/
+dist/*.idsig
+.DS_Store
+*.log

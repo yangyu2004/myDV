@@ -1,0 +1,149 @@
+.class public final synthetic Landroidx/media3/exoplayer/analytics/e;
+.super Ljava/lang/Object;
+.source "r8-map-id-a9865b84ca854aabc8efa3b6ab91a4d72c7f43f3dad3e5e7f1af8d3a0fd9c9b2"
+
+# interfaces
+.implements Landroidx/media3/common/util/ListenerSet$Event;
+
+
+# instance fields
+.field public final synthetic e:I
+
+.field public final synthetic f:Landroidx/media3/exoplayer/analytics/AnalyticsListener$EventTime;
+
+.field public final synthetic g:Z
+
+
+# direct methods
+.method public synthetic constructor <init>(Landroidx/media3/exoplayer/analytics/AnalyticsListener$EventTime;IZ)V
+    .locals 0
+
+    .line 1
+    iput p2, p0, Landroidx/media3/exoplayer/analytics/e;->e:I
+
+    .line 2
+    .line 3
+    iput-object p1, p0, Landroidx/media3/exoplayer/analytics/e;->f:Landroidx/media3/exoplayer/analytics/AnalyticsListener$EventTime;
+
+    .line 4
+    .line 5
+    iput-boolean p3, p0, Landroidx/media3/exoplayer/analytics/e;->g:Z
+
+    .line 6
+    .line 7
+    invoke-direct {p0}, Ljava/lang/Object;-><init>()V
+
+    .line 8
+    .line 9
+    .line 10
+    return-void
+.end method
+
+
+# virtual methods
+.method public final invoke(Ljava/lang/Object;)V
+    .locals 2
+
+    .line 1
+    iget v0, p0, Landroidx/media3/exoplayer/analytics/e;->e:I
+
+    .line 2
+    .line 3
+    packed-switch v0, :pswitch_data_0
+
+    .line 4
+    .line 5
+    .line 6
+    iget-boolean v0, p0, Landroidx/media3/exoplayer/analytics/e;->g:Z
+
+    .line 7
+    .line 8
+    check-cast p1, Landroidx/media3/exoplayer/analytics/AnalyticsListener;
+
+    .line 9
+    .line 10
+    iget-object v1, p0, Landroidx/media3/exoplayer/analytics/e;->f:Landroidx/media3/exoplayer/analytics/AnalyticsListener$EventTime;
+
+    .line 11
+    .line 12
+    invoke-static {v1, v0, p1}, Landroidx/media3/exoplayer/analytics/DefaultAnalyticsCollector;->U(Landroidx/media3/exoplayer/analytics/AnalyticsListener$EventTime;ZLandroidx/media3/exoplayer/analytics/AnalyticsListener;)V
+
+    .line 13
+    .line 14
+    .line 15
+    return-void
+
+    .line 16
+    :pswitch_0
+    iget-boolean v0, p0, Landroidx/media3/exoplayer/analytics/e;->g:Z
+
+    .line 17
+    .line 18
+    check-cast p1, Landroidx/media3/exoplayer/analytics/AnalyticsListener;
+
+    .line 19
+    .line 20
+    iget-object v1, p0, Landroidx/media3/exoplayer/analytics/e;->f:Landroidx/media3/exoplayer/analytics/AnalyticsListener$EventTime;
+
+    .line 21
+    .line 22
+    invoke-static {v1, v0, p1}, Landroidx/media3/exoplayer/analytics/DefaultAnalyticsCollector;->t0(Landroidx/media3/exoplayer/analytics/AnalyticsListener$EventTime;ZLandroidx/media3/exoplayer/analytics/AnalyticsListener;)V
+
+    .line 23
+    .line 24
+    .line 25
+    return-void
+
+    .line 26
+    :pswitch_1
+    iget-boolean v0, p0, Landroidx/media3/exoplayer/analytics/e;->g:Z
+
+    .line 27
+    .line 28
+    check-cast p1, Landroidx/media3/exoplayer/analytics/AnalyticsListener;
+
+    .line 29
+    .line 30
+    iget-object v1, p0, Landroidx/media3/exoplayer/analytics/e;->f:Landroidx/media3/exoplayer/analytics/AnalyticsListener$EventTime;
+
+    .line 31
+    .line 32
+    invoke-static {v1, v0, p1}, Landroidx/media3/exoplayer/analytics/DefaultAnalyticsCollector;->M(Landroidx/media3/exoplayer/analytics/AnalyticsListener$EventTime;ZLandroidx/media3/exoplayer/analytics/AnalyticsListener;)V
+
+    .line 33
+    .line 34
+    .line 35
+    return-void
+
+    .line 36
+    :pswitch_2
+    iget-boolean v0, p0, Landroidx/media3/exoplayer/analytics/e;->g:Z
+
+    .line 37
+    .line 38
+    check-cast p1, Landroidx/media3/exoplayer/analytics/AnalyticsListener;
+
+    .line 39
+    .line 40
+    iget-object v1, p0, Landroidx/media3/exoplayer/analytics/e;->f:Landroidx/media3/exoplayer/analytics/AnalyticsListener$EventTime;
+
+    .line 41
+    .line 42
+    invoke-static {v1, v0, p1}, Landroidx/media3/exoplayer/analytics/DefaultAnalyticsCollector;->F(Landroidx/media3/exoplayer/analytics/AnalyticsListener$EventTime;ZLandroidx/media3/exoplayer/analytics/AnalyticsListener;)V
+
+    .line 43
+    .line 44
+    .line 45
+    return-void
+
+    .line 46
+    nop
+
+    .line 47
+    :pswitch_data_0
+    .packed-switch 0x0
+        :pswitch_2
+        :pswitch_1
+        :pswitch_0
+    .end packed-switch
+.end method
