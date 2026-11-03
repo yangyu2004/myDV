@@ -3,3 +3,6 @@ build/
 dist/*.idsig
 .DS_Store
 *.log
+__pycache__/
+*.pyc
+
