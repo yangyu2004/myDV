@@ -275,7 +275,7 @@
     .line 130
     .line 131
     .line 132
-    const/16 v14, 0xf
+    const/16 v14, 0xe
 
     .line 133
     .line 134
@@ -385,18 +385,6 @@
     .line 182
     .line 183
     aput-object v13, v15, v12
-
-    new-instance v0, Lf6/j;
-
-    const-string v1, "x-tt-argus"
-
-    const-string v2, "1"
-
-    invoke-direct {v0, v1, v2}, Lf6/j;-><init>(Ljava/lang/Object;Ljava/lang/Object;)V
-
-    const/16 v1, 0xe
-
-    aput-object v0, v15, v1
 
     .line 184
     .line 185
@@ -2945,6 +2933,12 @@
     .line 54
     .line 55
     invoke-virtual {p1, p2, p0}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
+
+    const-string p0, "x-tt-argus"
+
+    const-string p2, "1"
+
+    invoke-virtual {p1, p0, p2}, Lokhttp3/Request$Builder;->header(Ljava/lang/String;Ljava/lang/String;)Lokhttp3/Request$Builder;
 
     .line 56
     .line 57
